@@ -84,7 +84,13 @@ export const skills: SkillCategory[] = [
   },
   {
     label: "Backend",
-    items: ["Node.js", "Express.js", "REST API", "Authentication"],
+    items: [
+      "Node.js",
+      "Express.js",
+      "PHP",
+      "REST API",
+      "Authentication",
+    ],
   },
   {
     label: "Desktop Application Development",
@@ -95,6 +101,23 @@ export const skills: SkillCategory[] = [
       "SQLite",
       "MySQL",
       "Desktop System Development",
+    ],
+  },
+  {
+    label: "Programming Languages",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "PHP",
+      "Python",
+      "SQL",
+    ],
+  },
+  {
+    label: "Database",
+    items: [
+      "MySQL",
+      "SQLite",
     ],
   },
   {
@@ -109,7 +132,15 @@ export const skills: SkillCategory[] = [
   },
   {
     label: "Tools",
-    items: ["Git", "GitHub", "VS Code", "Postman", "XAMPP", "Docker", "Figma"],
+    items: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "Postman",
+      "XAMPP",
+      "Docker",
+      "Figma",
+    ],
   },
   {
     label: "Professional Skills",
@@ -160,10 +191,7 @@ export const projects: Project[] = [
     "Electron",
     "Node.js",
     "Express.js",
-    "MySQL",
-    "HTML",
-    "CSS",
-    "JavaScript",
+    "SQLite",
   ],
 
   liveUrl: "https://www.youtube.com/watch?v=3ue50_MhFNo",
@@ -194,10 +222,7 @@ export const projects: Project[] = [
     "Electron",
     "Node.js",
     "Express.js",
-    "MySQL",
-    "HTML",
-    "CSS",
-    "JavaScript",
+    "SQLite",
   ],
 
   liveUrl: "https://www.youtube.com/watch?v=NwJBEeOhAK8",
@@ -262,15 +287,40 @@ export type Certificate = {
   name: string;
   issuer: string;
   date: string;
-  url?: string;
+  images: string[];
 };
 
 export const certificates: Certificate[] = [
   {
+    name: "Web Development",
+    issuer: "DICT",
+    date: "2024",
+    images: [
+      "/webdevelopment1.jpg",
+      "/webdevelopment2.jpg",
+      "/webdevelopment3.jpg",
+      "/webdevelopment4.jpg",
+      "/webdevelopment5.jpg",
+    ],
+  },
+
+{
+    name: "Data Privacy",
+    issuer: "DICT",
+    date: "2024",
+    images: [
+      "/dataprivacy1.jpg",
+      "/dataprivacy2.jpg",
+    ],
+  },
+
+  {
     name: "Visual Graphic Design NC III",
     issuer: "TESDA",
-    date: "2025",
-    url: "https://drive.google.com/file/d/1v76PVVUN72fgI64ZKYiIl-yc3sr58z9p/view?usp=drive_link",
+    date: "2026",
+    images: [
+      "/vgd.jpg",
+    ],
   },
 ];
 

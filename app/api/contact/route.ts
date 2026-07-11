@@ -1,54 +1,66 @@
 import { NextRequest, NextResponse } from "next/server";
+import { Resend } from "resend";
 
-// ─────────────────────────────────────────────────────────────
-// This route currently just validates and logs the message.
-// To actually send yourself an email, pick one:
-//
-// Option A — Resend (recommended, generous free tier):
-//   npm install resend
-//   import { Resend } from "resend";
-//   const resend = new Resend(process.env.RESEND_API_KEY);
-//   await resend.emails.send({
-//     from: "portfolio@yourdomain.com",
-//     to: "you@yourdomain.com",
-//     subject: `New message from ${name}`,
-//     text: message,
-//   });
-//
-// Option B — a form backend like Formspree/Web3Forms: skip this
-//   route entirely and point the <form action> at their endpoint.
-//
-// Remember to add any API keys to .env.local (never commit them).
-// ─────────────────────────────────────────────────────────────
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
-    const { name, email, message, company } = body as {
-      name?: string;
-      email?: string;
-      message?: string;
-      company?: string; // honeypot field — real users leave this blank
-    };
+
+    const { name, email, message, company } = body;
 
     if (company) {
-      // Likely a bot. Pretend it worked so it doesn't retry.
       return NextResponse.json({ ok: true });
     }
 
     if (!name || !email || !message) {
-      return NextResponse.json({ ok: false, error: "Missing required fields." }, { status: 400 });
+      return NextResponse.json(
+        { ok: false, error: "Missing required fields." },
+        { status: 400 }
+      );
     }
 
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return NextResponse.json({ ok: false, error: "Invalid email address." }, { status: 400 });
-    }
+    const { data, error } = await resend.emails.send({
+  from: "Portfolio Contact <onboarding@resend.dev>",
+  to: "shaneradam3@gmail.com",
+  subject: `New message from ${name}`,
+  replyTo: email,
+  html: `
+    <h2>New Portfolio Contact</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Message:</strong></p>
+    <p>${message}</p>
+  `,
+});
 
-    // TODO: replace with a real email send (see comment above).
-    console.log("New contact form submission:", { name, email, message });
+console.log("Resend data:", data);
+console.log("Resend error:", error);
+
+if (error) {
+  return NextResponse.json(
+    {
+      ok: false,
+      error: error.message,
+    },
+    {
+      status: 500,
+    }
+  );
+}
 
     return NextResponse.json({ ok: true });
-  } catch {
-    return NextResponse.json({ ok: false, error: "Something went wrong." }, { status: 500 });
+  } catch (error) {
+    console.error(error);
+
+    return NextResponse.json(
+      {
+        ok: false,
+        error: "Unable to send email.",
+      },
+      {
+        status: 500,
+      }
+    );
   }
 }

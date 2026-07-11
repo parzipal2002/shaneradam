@@ -5,42 +5,47 @@ import Image from "next/image";
 import {
   ExternalLink,
   Download,
-  ChevronLeft,
-  ChevronRight,
+  Images,
 } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import { projectFilters, projects } from "@/lib/data";
 import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
+import { ProjectGallery } from "@/components/project-gallery";
 
 export function Projects() {
   const [filter, setFilter] = useState<(typeof projectFilters)[number]>("All");
-  const [imageIndexes, setImageIndexes] = useState<Record<string, number>>({});
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImages, setSelectedImages] = useState<string[]>([]);
+  const [selectedTitle, setSelectedTitle] = useState("");
+  const [currentImage, setCurrentImage] = useState(0);
+  const [galleryOpen, setGalleryOpen] = useState(false);
 
   const filtered = useMemo(
     () => (filter === "All" ? projects : projects.filter((p) => p.tech.includes(filter))),
     [filter]
   );
 
-  const nextImage = (slug: string, total: number) => {
-  if (total === 0) return;
+  const openGallery = (images: string[], title: string) => {
+    if (!images || images.length === 0) return;
+    setSelectedImages(images);
+    setSelectedTitle(title);
+    setCurrentImage(0);
+    setGalleryOpen(true);
+  };
 
-  setImageIndexes((prev) => ({
-    ...prev,
-    [slug]: ((prev[slug] ?? 0) + 1) % total,
-  }));
-};
+  const closeGallery = () => {
+    setGalleryOpen(false);
+  };
 
+  const nextImage = () => {
+    setCurrentImage((prev) => (prev + 1) % selectedImages.length);
+  };
 
-const prevImage = (slug: string, total: number) => {
-  if (total === 0) return;
-
-  setImageIndexes((prev) => ({
-    ...prev,
-    [slug]: ((prev[slug] ?? 0) - 1 + total) % total,
-  }));
-};
+  const prevImage = () => {
+    setCurrentImage((prev) =>
+      prev === 0 ? selectedImages.length - 1 : prev - 1
+    );
+  };
 
   return (
     <section id="projects" className="border-t hairline py-24 sm:py-32">
@@ -76,52 +81,30 @@ const prevImage = (slug: string, total: number) => {
                     <span className="h-2 w-2 rounded-full bg-[#F2C94C]/70" />
                     <span className="h-2 w-2 rounded-full bg-[#2ECC71]/70" />
                     <span className="ml-2 truncate rounded bg-paper-surface-2 px-2 py-0.5 font-mono text-[10px] text-ink/40 dark:bg-ink-surface-2 dark:text-paper/40">
-  🖥️ Electron Desktop Application
-</span>
+                      🖥️ Electron Desktop Application
+                    </span>
                   </div>
-                  <div className="relative h-[420px] overflow-hidden bg-black/5">
 
-  <button
-  onClick={() =>
-    setSelectedImage(
-      project.images?.[imageIndexes[project.slug] ?? 0] ?? null
-    )
-  }
-  className="h-full w-full cursor-zoom-in"
->
-  <Image
-  src={project.images?.[imageIndexes[project.slug] ?? 0] ?? "/placeholder.png"}
-  alt={project.name}
-  fill
-  quality={100}
-  sizes="(max-width:768px) 100vw, 50vw"
-  className="object-contain p-4 transition duration-300 hover:scale-[1.03]"
-/>
-</button>
+                  <button
+                    onClick={() => openGallery(project.images ?? [], project.name)}
+                    className="relative block h-[420px] w-full cursor-zoom-in overflow-hidden bg-black/5"
+                  >
+                    <Image
+                      src={project.images?.[0] ?? "/placeholder.png"}
+                      alt={project.name}
+                      fill
+                      quality={100}
+                      sizes="(max-width:768px) 100vw, 50vw"
+                      className="object-contain p-4 transition duration-300 group-hover:scale-[1.03]"
+                    />
 
-  {project.images && project.images.length > 1 && (
-    <>
-      <button
-        onClick={() => prevImage(project.slug, project.images?.length ?? 0)}
-        className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80"
-      >
-        <ChevronLeft size={20} />
-      </button>
-
-      <button
-        onClick={() => nextImage(project.slug, project.images?.length ?? 0)}
-        className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full bg-black/60 p-2 text-white hover:bg-black/80"
-      >
-        <ChevronRight size={20} />
-      </button>
-
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-black/60 px-3 py-1 text-xs text-white">
-        {(imageIndexes[project.slug] ?? 0) + 1} / {project.images?.length}
-      </div>
-    </>
-  )}
-
-</div>
+                    {project.images && project.images.length > 1 && (
+                      <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-black/60 px-2 py-1 text-xs text-white backdrop-blur">
+                        <Images className="h-3.5 w-3.5" />
+                        {project.images.length}
+                      </div>
+                    )}
+                  </button>
                 </div>
 
                 <div className="p-6">
@@ -149,44 +132,42 @@ const prevImage = (slug: string, total: number) => {
                   </div>
 
                   <div className="mt-6 flex flex-wrap gap-3">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        Watch Demo
+                      </a>
+                    )}
 
-  {project.liveUrl && (
-    <a
-      href={project.liveUrl}
-      target="_blank"
-      rel="noreferrer"
-      className="inline-flex items-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-medium text-white transition hover:opacity-90"
-    >
-      <ExternalLink className="h-4 w-4" />
-      Watch Demo
-    </a>
-  )}
+                    {project.downloadUrl && (
+                      <a
+                        href={project.downloadUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg border hairline px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent"
+                      >
+                        <Download className="h-4 w-4" />
+                        Download
+                      </a>
+                    )}
 
-  {project.downloadUrl && (
-    <a
-      href={project.downloadUrl}
-      target="_blank"
-      rel="noreferrer"
-      className="inline-flex items-center gap-2 rounded-lg border hairline px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent"
-    >
-      <Download className="h-4 w-4" />
-      Download
-    </a>
-  )}
-
-  {project.githubUrl && (
-    <a
-      href={project.githubUrl}
-      target="_blank"
-      rel="noreferrer"
-      className="inline-flex items-center gap-2 rounded-lg border hairline px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent"
-    >
-      <FaGithub className="h-4 w-4" />
-      Source Code
-    </a>
-  )}
-
-</div>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 rounded-lg border hairline px-4 py-2 text-sm font-medium transition hover:border-accent hover:text-accent"
+                      >
+                        <FaGithub className="h-4 w-4" />
+                        Source Code
+                      </a>
+                    )}
+                  </div>
                 </div>
               </article>
             </Reveal>
@@ -200,35 +181,15 @@ const prevImage = (slug: string, total: number) => {
         )}
       </div>
 
-{selectedImage && (
-  <div
-    className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-6"
-    onClick={() => setSelectedImage(null)}
-  >
-    <div
-      className="relative max-h-[90vh] max-w-[95vw]"
-      onClick={(e) => e.stopPropagation()}
-    >
-      <button
-        onClick={() => setSelectedImage(null)}
-        className="absolute -right-4 -top-4 rounded-full bg-white p-2 text-black shadow-lg"
-      >
-        ✕
-      </button>
-
-      <Image
-  src={selectedImage}
-  alt="Project Screenshot"
-  width={1920}
-  height={1080}
-  quality={100}
-  className="max-h-[90vh] max-w-[95vw] rounded-lg object-contain"
-/>
-    </div>
-  </div>
-)}
-
+      <ProjectGallery
+        images={selectedImages}
+        title={selectedTitle}
+        current={currentImage}
+        open={galleryOpen}
+        onClose={closeGallery}
+        onNext={nextImage}
+        onPrev={prevImage}
+      />
     </section>
-    
   );
 }
