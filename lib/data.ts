@@ -333,10 +333,10 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [];
 
 export const nav = [
-  { id: "hero", label: "hero.tsx" },
-  { id: "about", label: "about.tsx" },
-  { id: "skills", label: "skills.ts" },
-  { id: "projects", label: "projects.tsx" },
-  { id: "experience", label: "experience.ts" },
-  { id: "contact", label: "contact.tsx" },
+  { id: "hero", label: "dashboard" },
+  { id: "about", label: "about" },
+  { id: "skills", label: "skills" },
+  { id: "projects", label: "projects" },
+  { id: "experience", label: "experience" },
+  { id: "contact", label: "contact" },
 ];
