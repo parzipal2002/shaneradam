@@ -25,7 +25,15 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: `${site.name} — ${site.role}`,
   description: site.tagline,
-  metadataBase: new URL("https://example.com"),
+
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+
+  metadataBase: new URL("https://parziport.vercel.app"),
+
   openGraph: {
     title: `${site.name} — ${site.role}`,
     description: site.tagline,
