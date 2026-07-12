@@ -84,8 +84,12 @@ export function Projects() {
                     <span className="h-2 w-2 rounded-full bg-[#F2C94C]/70" />
                     <span className="h-2 w-2 rounded-full bg-[#2ECC71]/70" />
                     <span className="ml-2 truncate rounded bg-paper-surface-2 px-2 py-0.5 font-mono text-[10px] text-ink/40 dark:bg-ink-surface-2 dark:text-paper/40">
-                      🖥️ Electron Desktop Application
-                    </span>
+  {project.category.includes("Design")
+    ? "🎨 Graphic Design Portfolio"
+    : project.category.includes("Desktop")
+    ? "🖥️ Electron Desktop Application"
+    : "🌐 Web Development Project"}
+</span>
                   </div>
 
                   <button
