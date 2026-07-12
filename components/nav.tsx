@@ -124,8 +124,8 @@ export function Nav() {
 
         <div className="flex flex-1 items-center justify-between py-2.5 md:flex-none md:justify-end md:py-0 md:pl-3">
 
-          <span className="font-mono text-xs text-ink/70 dark:text-paper/70 md:hidden">
-            {site.name.split(" ")[0].toLowerCase()}.tsx
+          <span className="font-mono text-xs font-bold text-ink dark:text-paper md:hidden">
+            Parzi
           </span>
 
 

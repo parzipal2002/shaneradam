@@ -4,7 +4,7 @@
 // ─────────────────────────────────────────────────────────────
 
 export const site = {
-  name: "Shane J. Radam",
+  name: "Shane Radam",
   role: "Full Stack Web Developer | IT Support Specialist",
 
   roles: [
@@ -70,12 +70,19 @@ export type SkillCategory = {
 
 export const skills: SkillCategory[] = [
   {
-    label: "Frontend",
+    label: "Programming Languages",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "PHP",
+      "Python",
+    ],
+  },
+  {
+    label: "Frontend Development",
     items: [
       "HTML5",
       "CSS3",
-      "JavaScript",
-      "TypeScript",
       "React",
       "Next.js",
       "Tailwind CSS",
@@ -83,12 +90,11 @@ export const skills: SkillCategory[] = [
     ],
   },
   {
-    label: "Backend",
+    label: "Backend Development",
     items: [
       "Node.js",
       "Express.js",
-      "PHP",
-      "REST API",
+      "REST APIs",
       "Authentication",
     ],
   },
@@ -98,59 +104,60 @@ export const skills: SkillCategory[] = [
       "Electron.js",
       "Electron Builder",
       "Auto Updater",
-      "SQLite",
-      "MySQL",
-      "Desktop System Development",
     ],
   },
   {
-    label: "Programming Languages",
-    items: [
-      "JavaScript",
-      "TypeScript",
-      "PHP",
-      "Python",
-      "SQL",
-    ],
-  },
-  {
-    label: "Database",
+    label: "Databases",
     items: [
       "MySQL",
       "SQLite",
     ],
   },
   {
-    label: "Design",
+    label: "Design & UI/UX",
     items: [
-      "Adobe Photoshop",
-      "Adobe Illustrator",
-      "SketchUp Pro",
       "UI/UX Design",
       "Wireframing",
+      "Adobe Photoshop",
+      "Adobe Illustrator",
+      "Figma",
+      "SketchUp Pro",
     ],
   },
   {
-    label: "Tools",
+    label: "Developer Tools",
     items: [
       "Git",
       "GitHub",
       "VS Code",
       "Postman",
-      "XAMPP",
       "Docker",
-      "Figma",
+      "XAMPP",
+      "MySQL Workbench",
+      "Navicat",
     ],
   },
   {
     label: "Professional Skills",
-    items: [
-      "Problem Solving",
-      "Communication",
-      "Customer Service",
-      "Team Collaboration",
-      "Technical Support",
-      "Project Management",
+  items: [
+    // Programming & Software Development
+    "Full-Stack Web Development",
+    "System Design & Architecture",
+    "API Integration",
+    "Database Design",
+    "Debugging & Troubleshooting",
+    "Code Optimization",
+
+    // IT & Technical Support
+    "IT Support & Troubleshooting",
+    "Hardware & Software Installation",
+    "Network Configuration",
+    "System Maintenance",
+
+    // Graphics & UI/UX
+    "UI/UX Design",
+    "Graphic Design",
+    "Wireframing & Prototyping",
     ],
   },
 ];
@@ -159,6 +166,9 @@ export type Project = {
   slug: string;
   name: string;
   description: string;
+
+  category: ("Development" | "Desktop" | "Design")[];
+  
   tech: string[];
 
   images?: string[];
@@ -169,19 +179,24 @@ export type Project = {
 
   color: string;
   featured?: boolean;
-};
+};  
 
 export const projects: Project[] = [
   {
   slug: "assets-management-system",
 
+  category: ["Development", "Desktop"],
+
   name: "Assets Management System",
 
   images: [
+    "/projects/assets-management-system/login.png",
     "/projects/assets-management-system/dashboard.png",
     "/projects/assets-management-system/assets.png",
+    "/projects/assets-management-system/add.png",
     "/projects/assets-management-system/categories.png",
     "/projects/assets-management-system/reports.png",
+    "/projects/assets-management-system/user.png",
   ],
 
   description:
@@ -194,7 +209,7 @@ export const projects: Project[] = [
     "SQLite",
   ],
 
-  liveUrl: "https://www.youtube.com/watch?v=3ue50_MhFNo",
+  liveUrl: "https://youtu.be/KMDgHyk_EuQ",
 
   downloadUrl:
     "https://drive.google.com/file/d/1V3gCzM9JElR2jVTZ2hCrUgA3qKHe9ClJ/view?usp=drive_link",
@@ -204,15 +219,20 @@ export const projects: Project[] = [
   featured: true,
 },
 
-  {
+{
   slug: "applicant-management-system",
+
+  category: ["Development", "Desktop"],
 
   name: "Applicant Management System",
 
   images: [
+    "/projects/applicant-management-system/login.png",
     "/projects/applicant-management-system/dashboard.png",
     "/projects/applicant-management-system/applicants.png",
-    "/projects/applicant-management-system/reports.png",
+    "/projects/applicant-management-system/add.png",
+    "/projects/applicant-management-system/update.png",
+    "/projects/applicant-management-system/settings.png",
   ],
 
   description:
@@ -225,7 +245,7 @@ export const projects: Project[] = [
     "SQLite",
   ],
 
-  liveUrl: "https://www.youtube.com/watch?v=NwJBEeOhAK8",
+  liveUrl: "https://youtu.be/H2mduGc22Sw",
 
   downloadUrl:
     "https://drive.google.com/file/d/1uCZ5n4YaYQXLZ3Of0wwl_7hUMoY7fCWV/view?usp=drive_link",
@@ -234,9 +254,47 @@ export const projects: Project[] = [
 
   featured: true,
 },
+
+{
+  slug: "visual-design",
+
+  category: ["Design"],
+
+  name: "Visual Design Portfolio",
+
+  images: [
+    "/projects/poster/b.jpg",
+    "/projects/poster/d.jpg",
+    "/projects/poster/bp.png",
+    "/projects/poster/bps.png",
+    "/projects/poster/dp.png",
+    "/projects/poster/ui.jpg",
+    "/projects/poster/booth.jpg",
+  ],
+
+  description:
+    "A collection of visual design projects showcasing branding, marketing materials, social media graphics, UI concepts, print designs, and 3D modeling. Created using industry-standard design tools with a focus on creativity, visual communication, and user-centered design.",
+
+  tech: [
+    "Adobe Photoshop",
+    "Adobe Illustrator",
+    "Adobe XD",
+    "SketchUp Pro",
+  ],
+
+  color: "from-[#EC4899] to-[#8B5CF6]",
+
+  featured: true,
+},
+
 ];
 
-export const projectFilters = ["All", "React", "Electron", "Node.js"] as const;
+export const projectFilters = [
+  "All",
+  "Development",
+  "Desktop",
+  "Design",
+] as const;
 
 export type ExperienceItem = {
   role: string;
@@ -311,6 +369,21 @@ export const certificates: Certificate[] = [
     images: [
       "/dataprivacy1.jpg",
       "/dataprivacy2.jpg",
+    ],
+  },
+
+  {
+    name: "Visual Graphic Design",
+    issuer: "TESDA",
+    date: "2026",
+    images: [
+      "/1.png",
+      "/2.png",
+      "/3.png",
+      "/4.png",
+      "/5.png",
+      "/6.png",
+      "/7.png",
     ],
   },
 

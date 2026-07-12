@@ -101,7 +101,7 @@ export function Contact() {
                     id="name"
                     name="name"
                     required
-                    placeholder="e.g Shane Radam"
+                    placeholder="Your Name"
                     className="mt-1.5 w-full rounded-lg border hairline bg-paper px-3.5 py-2.5 text-sm outline-none focus:border-accent dark:bg-ink"
                   />
                 </div>
@@ -114,7 +114,7 @@ export function Contact() {
                     type="email"
                     name="email"
                     required
-                    placeholder="e.g shaneradam3@gmail.com"
+                    placeholder="e.g yourname@gmail.com"
                     className="mt-1.5 w-full rounded-lg border hairline bg-paper px-3.5 py-2.5 text-sm outline-none focus:border-accent dark:bg-ink"
                   />
                 </div>

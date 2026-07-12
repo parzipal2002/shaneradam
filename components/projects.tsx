@@ -21,9 +21,12 @@ export function Projects() {
   const [galleryOpen, setGalleryOpen] = useState(false);
 
   const filtered = useMemo(
-    () => (filter === "All" ? projects : projects.filter((p) => p.tech.includes(filter))),
-    [filter]
-  );
+  () =>
+    filter === "All"
+      ? projects
+      : projects.filter((p) => p.category.includes(filter)),
+  [filter]
+);
 
   const openGallery = (images: string[], title: string) => {
     if (!images || images.length === 0) return;
