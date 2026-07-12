@@ -23,7 +23,7 @@ export const site = {
   email: "shaneradam3@gmail.com",
   phone: "+63 906 865 3692",
 
-  resumeUrl: "/resume.pdf",
+  resumeUrl: "/Resume.pdf",
   photo: "/photo.jpg" as string | null,
 
   social: {
