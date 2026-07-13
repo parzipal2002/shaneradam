@@ -78,6 +78,7 @@ export const skills: SkillCategory[] = [
       "Python",
     ],
   },
+
   {
     label: "Frontend Development",
     items: [
@@ -89,43 +90,64 @@ export const skills: SkillCategory[] = [
       "Bootstrap",
     ],
   },
+
   {
     label: "Backend Development",
     items: [
       "Node.js",
       "Express.js",
-      "REST APIs",
-      "Authentication",
+      "REST API Development",
+      "API Integration",
+      "Authentication & Authorization",
     ],
   },
+
   {
     label: "Desktop Application Development",
     items: [
       "Electron.js",
       "Electron Builder",
-      "Auto Updater",
+      "Desktop Application Packaging",
+      "Application Deployment",
     ],
   },
+
   {
-    label: "Databases",
+    label: "Database Management",
     items: [
       "MySQL",
       "SQLite",
+      "SQL",
+      "Database Design",
+      "Database Optimization",
     ],
   },
+
   {
-    label: "Design & UI/UX",
+    label: "UI/UX & Creative Design",
     items: [
       "UI/UX Design",
       "Wireframing",
+      "Prototyping",
+      "Figma",
       "Adobe Photoshop",
       "Adobe Illustrator",
-      "Figma",
-      "SketchUp Pro",
     ],
   },
+
   {
-    label: "Developer Tools",
+    label: "IT Infrastructure & Support",
+    items: [
+      "IT Support & Troubleshooting",
+      "Hardware & Software Installation",
+      "Network Configuration",
+      "System Maintenance",
+      "Computer Asset Management",
+    ],
+  },
+
+  {
+    label: "Developer Tools & Technologies",
     items: [
       "Git",
       "GitHub",
@@ -137,27 +159,18 @@ export const skills: SkillCategory[] = [
       "Navicat",
     ],
   },
+
   {
     label: "Professional Skills",
-  items: [
-    // Programming & Software Development
-    "Full-Stack Web Development",
-    "System Design & Architecture",
-    "API Integration",
-    "Database Design",
-    "Debugging & Troubleshooting",
-    "Code Optimization",
-
-    // IT & Technical Support
-    "IT Support & Troubleshooting",
-    "Hardware & Software Installation",
-    "Network Configuration",
-    "System Maintenance",
-
-    // Graphics & UI/UX
-    "UI/UX Design",
-    "Graphic Design",
-    "Wireframing & Prototyping",
+    items: [
+      "Full-Stack Web Development",
+      "Software Development",
+      "Application Design",
+      "Problem Solving",
+      "Debugging & Troubleshooting",
+      "Code Optimization",
+      "Technical Documentation",
+      "System Analysis",
     ],
   },
 ];
