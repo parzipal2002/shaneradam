@@ -123,7 +123,7 @@ export function Hero() {
               <span className="h-2 w-2 rounded-full bg-[#EB5757]/70" />
               <span className="h-2 w-2 rounded-full bg-[#F2C94C]/70" />
               <span className="h-2 w-2 rounded-full bg-[#2ECC71]/70" />
-              <span className="ml-2 font-mono text-[10px] text-ink/40 dark:text-paper/40">profile.png</span>
+              <span className="ml-2 font-mono text-[10px] text-ink/40 dark:text-paper/40">profile</span>
             </div>
             <div className="aspect-[4/5] w-full">
               {site.photo ? (

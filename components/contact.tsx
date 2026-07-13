@@ -86,7 +86,7 @@ export function Contact() {
                 <span className="h-2 w-2 rounded-full bg-[#EB5757]/70" />
                 <span className="h-2 w-2 rounded-full bg-[#F2C94C]/70" />
                 <span className="h-2 w-2 rounded-full bg-[#2ECC71]/70" />
-                <span className="ml-2 font-mono text-[10px] text-ink/40 dark:text-paper/40">send-message.sh</span>
+                <span className="ml-2 font-mono text-[10px] text-ink/40 dark:text-paper/40">send me a message</span>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4 p-6">
