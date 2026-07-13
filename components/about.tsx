@@ -26,7 +26,7 @@ export function About() {
                 <span className="h-2 w-2 rounded-full bg-[#EB5757]/70" />
                 <span className="h-2 w-2 rounded-full bg-[#F2C94C]/70" />
                 <span className="h-2 w-2 rounded-full bg-[#2ECC71]/70" />
-                <span className="ml-2 font-mono text-[10px] text-ink/40 dark:text-paper/40">profile.json</span>
+                <span className="ml-2 font-mono text-[10px] text-ink/40 dark:text-paper/40">about me</span>
               </div>
               <div className="p-5 font-mono text-[13px] leading-6">
                 <p className="text-ink/50 dark:text-paper/50">{"{"}</p>
