@@ -245,7 +245,7 @@ export const projects: Project[] = [
     "SQLite",
   ],
 
-  liveUrl: "https://youtu.be/H2mduGc22Sw",
+  liveUrl: "https://youtu.be/x_HTbC4NIXA",
 
   downloadUrl:
     "https://drive.google.com/file/d/1uCZ5n4YaYQXLZ3Of0wwl_7hUMoY7fCWV/view?usp=drive_link",
