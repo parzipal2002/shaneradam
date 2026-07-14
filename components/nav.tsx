@@ -69,7 +69,7 @@ export function Nav() {
           className="mr-4 flex items-center gap-2"
         >
           <Image
-            src="/parzi.png"
+            src="/icon.png"
             alt="Parzi Logo"
             width={36}
             height={36}
