@@ -64,7 +64,7 @@ export function CertificateGallery({
             }
           }}
         >
-          {/* Close */}
+          {/* Close Button */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -74,19 +74,6 @@ export function CertificateGallery({
           >
             <X size={24} />
           </button>
-
-          {/* Previous */}
-          {images.length > 1 && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onPrev();
-              }}
-              className="absolute left-6 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/10 bg-white/10 p-4 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-white/20"
-            >
-              <ChevronLeft size={30} />
-            </button>
-          )}
 
           {/* Image */}
           <motion.div
@@ -110,28 +97,43 @@ export function CertificateGallery({
             />
           </motion.div>
 
-          {/* Next */}
-          {images.length > 1 && (
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                onNext();
-              }}
-              className="absolute right-6 top-1/2 z-20 -translate-y-1/2 rounded-full border border-white/10 bg-white/10 p-4 text-white backdrop-blur-xl transition-all duration-300 hover:scale-110 hover:bg-white/20"
-            >
-              <ChevronRight size={30} />
-            </button>
-          )}
+          {/* Bottom Controls */}
+          <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 rounded-2xl border border-white/10 bg-white/10 px-6 py-4 backdrop-blur-xl">
+            <div className="flex items-center gap-5">
+              {images.length > 1 && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onPrev();
+                  }}
+                  className="rounded-full border border-white/10 bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+                >
+                  <ChevronLeft size={22} />
+                </button>
+              )}
 
-          {/* Bottom Info */}
-          <div className="absolute bottom-8 left-1/2 z-20 -translate-x-1/2 rounded-2xl border border-white/10 bg-white/10 px-6 py-4 text-center backdrop-blur-xl">
-            <h3 className="text-xl font-bold text-white">
-              {title}
-            </h3>
+              <div className="min-w-[220px] text-center">
+                <h3 className="text-xl font-bold text-white">
+                  {title}
+                </h3>
 
-            <p className="mt-2 text-sm text-white/70">
-              Image {current + 1} of {images.length}
-            </p>
+                <p className="mt-1 text-sm text-white/70">
+                  Image {current + 1} of {images.length}
+                </p>
+              </div>
+
+              {images.length > 1 && (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onNext();
+                  }}
+                  className="rounded-full border border-white/10 bg-white/10 p-2 text-white transition-all duration-300 hover:scale-110 hover:bg-white/20"
+                >
+                  <ChevronRight size={22} />
+                </button>
+              )}
+            </div>
           </div>
         </motion.div>
       )}
