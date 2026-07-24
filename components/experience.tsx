@@ -14,7 +14,7 @@ export function Experience() {
     <section id="experience" className="border-t hairline bg-paper-surface py-24 dark:bg-ink-surface sm:py-32">
       <div className="mx-auto max-w-4xl px-6">
         <SectionHeading path="experience" title="Where I've worked" />
-        <p className="mt-3 font-mono text-xs text-ink/40 dark:text-paper/40">git log --author=&quot;me&quot; --oneline</p>
+        <p className="mt-3 font-mono text-xs text-ink/40 dark:text-paper/40"></p>
 
         <div className="relative mt-12 space-y-10 border-l hairline pl-8">
           {experience.map((item, i) => (
