@@ -222,12 +222,85 @@ export const projects: Project[] = [
     "SQLite",
   ],
 
-  liveUrl: "https://youtu.be/KMDgHyk_EuQ",
+  liveUrl: "/projects/assets-management-system/1.mp4",
 
   downloadUrl:
-    "https://drive.google.com/file/d/1V3gCzM9JElR2jVTZ2hCrUgA3qKHe9ClJ/view?usp=drive_link",
+    "https://drive.google.com/file/d/131RQfuH4BnF-Ci79tD5jk5kwo_ObUk98/view?usp=drive_link",
 
   color: "from-[#2563EB] to-[#1D4ED8]",
+
+  featured: true,
+},
+
+{
+  slug: "system-control-center",
+
+  category: ["Development", "Desktop"],
+
+  name: "System Control Center",
+
+  images: [
+    "/projects/system-control-center/a.png",
+    "/projects/system-control-center/b.png",
+    "/projects/system-control-center/c.png",
+    "/projects/system-control-center/d.png",
+    "/projects/system-control-center/e.png",
+    "/projects/system-control-center/f.png",
+    "/projects/system-control-center/g.png",
+    "/projects/system-control-center/h.png",
+    "/projects/system-control-center/i.png",
+    "/projects/system-control-center/j.png",
+    "/projects/system-control-center/k.png",
+  ],
+
+  description:
+    "A modern desktop application that provides an all-in-one system management dashboard for Windows. It enables users to monitor system performance, manage running processes, browse files, schedule power actions, analyze storage usage, view hardware information, inspect network activity, manage startup applications, create scheduled tasks, and access clipboard history through a clean and intuitive interface.",
+
+  tech: [
+    "Electron",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+  ],
+
+  liveUrl: "/projects/system-control-center/system.mp4",
+
+  downloadUrl:
+    "https://drive.google.com/file/d/1bxi1o2MROHUwifd892fqWbOc52ZJyssE/view?usp=drive_link",
+
+  color: "from-[#059669] to-[#10B981]",
+
+  featured: true,
+},
+
+{
+  slug: "power-timer",
+
+  category: ["Development", "Desktop"],
+
+  name: "Power Timer",
+
+  images: [
+    "/projects/power-timer/power1.png",
+    "/projects/power-timer/power2.png",
+  ],
+
+  description:
+    "A modern desktop application that automates Windows power management through customizable countdown timers. Users can schedule shutdown, restart, sleep, or lock actions with an intuitive circular countdown interface, optional notifications, and real-time progress tracking.",
+
+  tech: [
+    "Electron",
+    "Javascript",
+    "HTTML5",
+    "CSS3",
+  ],
+
+  liveUrl: "/projects/power-timer/power.mp4",
+
+  downloadUrl:
+    "https://drive.google.com/file/d/1UQRrbarjQeEioOFsEAPiaFsGe3-qd3Il/view?usp=drive_link",
+
+  color: "from-[#059669] to-[#10B981]",
 
   featured: true,
 },
@@ -258,10 +331,10 @@ export const projects: Project[] = [
     "SQLite",
   ],
 
-  liveUrl: "https://youtu.be/x_HTbC4NIXA",
+  liveUrl: "/projects/applicant-management-system/2.mp4",
 
   downloadUrl:
-    "https://drive.google.com/file/d/1uCZ5n4YaYQXLZ3Of0wwl_7hUMoY7fCWV/view?usp=drive_link",
+    "https://drive.google.com/file/d/1WldwwE08vS0XdrPd6ySAfitmcg5fuSig/view?usp=drive_link",
 
   color: "from-[#059669] to-[#10B981]",
 
@@ -304,7 +377,6 @@ export const projects: Project[] = [
 
 export const projectFilters = [
   "All",
-  "Development",
   "Desktop",
   "Design",
 ] as const;
@@ -323,7 +395,7 @@ export const experience: ExperienceItem[] = [
 
     org: "Regasco",
 
-    period: "2025 — Present",
+    period: "JAN 2026 — MAY 2026",
 
     type: "Job",
 
@@ -341,7 +413,7 @@ export const experience: ExperienceItem[] = [
 
     org: "Neo Global Solutions Inc.",
 
-    period: "2021 — 2022",
+    period: "AUG 2021 — JULY 2022",
 
     type: "Job",
 
